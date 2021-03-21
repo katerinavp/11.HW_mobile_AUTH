@@ -1,3 +1,3 @@
 # KtorHomework
 
-Cсылка на [Heroku](https://ktor-coursar.herokuapp.com/api/v1/posts)
+Cсылка на [Heroku](https://katerinavpbackendfornetwork.herokuapp.com/api/v1/)
