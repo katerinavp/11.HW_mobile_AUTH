@@ -1,0 +1,46 @@
+package org.example.dto.responce
+
+import org.example.model.EventModel
+import org.example.model.PostModel
+import org.example.model.PostType
+import org.example.model.VideoModel
+
+data class PostResponseDto(
+    val id: Long,
+    val authorId: Long,
+    val content: String,
+    val created: Long,
+    val imageUrl: String?,
+    val likedCount: Int = 0,
+    val dislikedCount: Int = 0,
+    val likedByMe: Int = 0,
+    val repostCount: Int = 0,
+    val repostByMe: Boolean = false,
+    val sharedCount: Int = 0,
+    val sharedByMe: Boolean = false,
+    val event: EventModel? = null,
+    val video: VideoModel? = null,
+    val postType: PostType = PostType.POST,
+    val countViews: Int,
+) {
+    companion object {
+        fun fromModel(dto: PostModel) = PostResponseDto(
+            id = dto.id,
+            authorId = dto.authorId,
+            content = dto.content,
+            created = dto.created,
+            imageUrl = dto.imageUrl,
+            likedCount = dto.likedCount,
+            dislikedCount = dto.dislikedCount,
+            likedByMe = dto.likedByMe,
+            sharedCount = dto.sharedCount,
+            sharedByMe = dto.sharedByMe,
+            event = dto.event,
+            video = dto.video,
+            postType = dto.postType,
+            repostCount = dto.repostCount,
+            repostByMe = dto.repostByMe,
+            countViews = dto.countViews
+        )
+    }
+}

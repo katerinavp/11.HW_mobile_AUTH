@@ -1,0 +1,1355 @@
+{
+	"info": {
+		"_postman_id": "1afb6cea-ebb1-44e9-af0c-585219a39187",
+		"name": "KtorBackend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOCAL",
+			"item": [
+				{
+					"name": "AUTH",
+					"item": [
+						{
+							"name": "authentication",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"username\": \"Test\",\r\n \"password\": \"qwerty\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/authentication",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"authentication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registration",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"username\": \"Test2\",\r\n \"password\": \"qwerty3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/registration",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "static",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/static/test.jpg",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"static",
+										"test.jpg"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "media",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MjE3MTMwfQ.3w5adPn4mPteCllttqQDennO55DU_JK4DVjbL2fr2Qg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTI2MDYwfQ.vMvFtuR3SpT6x2mi5oXPB59a2NB_1zCPSy-FLK8j5-8}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Viacheslav/Desktop/test2.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/media",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"media"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loaded media",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/static/75d366d5-347d-4c0f-977f-fc411df34813.jpg",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"static",
+										"75d366d5-347d-4c0f-977f-fc411df34813.jpg"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MzgzMDUyfQ.WecXpdlrBEQEMJ4nlbHMT2YnzhydKIqjZQ8yirtlg1o",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/me",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Auth"
+				},
+				{
+					"name": "USERS",
+					"item": []
+				},
+				{
+					"name": "POSTS",
+					"item": [
+						{
+							"name": "/posts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [POST]",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"authorId\": 1,\r\n    \"content\": \"Мой первый пост!\",\r\n    \"created\": 1585637381,\r\n    \"postType\": \"POST\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [POST] Edit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MzA3OTIxfQ.YhOApTPoTISrethhQ0GdlVyLeHhyLDqok9uD1yTOnZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"id\": 1,\r\n    \"authorId\": 1,\r\n    \"content\": \"Мой первый пост! (Изменен!)\",\r\n    \"created\": 1585637381,\r\n    \"postType\": \"POST\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [EVENT]",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MjkwNzUwfQ.MgpRtDjc7rdPR1PHbR5L-qVSEeXyZ77hRtbAa6wLaLs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"authorId\": 1,\r\n    \"content\": \"Мы на красной площади!\",\r\n    \"created\": 1585637381,\r\n    \"event\": {\r\n        \"address\": \"Красная площадь\",\r\n        \"lat\": 55.753575,\r\n        \"lng\": 37.62104\r\n        },\r\n    \"postType\": \"EVENT\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [VIDEO]",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MjkwNzUwfQ.MgpRtDjc7rdPR1PHbR5L-qVSEeXyZ77hRtbAa6wLaLs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"authorId\": 1,\r\n    \"content\": \"Resident Evil Village - 3rd Trailer\",\r\n    \"created\": 1585637381,\r\n    \"video\": {\r\n        \"url\": \"https://www.youtube.com/watch?v=btFclZUXpzA&t=7s\",\r\n        \"imgUrl\": \"https://i.ytimg.com/vi/btFclZUXpzA/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB0N6wi-IiDsGNzfZBou7XQKxZq8A\"\r\n        },\r\n    \"postType\": \"VIDEO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MzgxMTE2fQ.C0-t57JlT-m8VvN4iINM0M783iFtkBlQvdRulc2JFv8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNjE1MzgwMDQ3fQ.Mv4-qngZCpZ_APGFbXaCNYYVkcgfUOabKGRAvtkx6N4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/?id&like",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzc5ODY3fQ.wFLsr8C6jsC0lEiGNCjZBXHZmVtVYdJrurgmR6Ky2sI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/1/like",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/?id&like",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1NzMyMDcwfQ.U-b7V6IdykB5BrYumwhzwSjoTjvBhhpM38ipO8rkxOs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/1/like",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/?id/dislike",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNjE1MzgwMDQ3fQ.Mv4-qngZCpZ_APGFbXaCNYYVkcgfUOabKGRAvtkx6N4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/1/dislike",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"dislike"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/repost/repost",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"id\": 1,\r\n    \"parentPostId\": 1,\r\n    \"authorId\": 1,\r\n    \"content\": \"отличный пост!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/repost",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"repost"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/share/:id/share",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/posts/1/share",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"share"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Тут роуты на локальной машине"
+		},
+		{
+			"name": "REMOTE",
+			"item": [
+				{
+					"name": "AUTH",
+					"item": [
+						{
+							"name": "authentication",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"username\": \"Test\",\r\n \"password\": \"qwerty\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/authentication",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authentication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registration",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"username\": \"Test2\",\r\n \"password\": \"qwerty2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/registration",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"registration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "static",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/static/test.jpg",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"static",
+										"test.jpg"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "media",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MjE3MTMwfQ.3w5adPn4mPteCllttqQDennO55DU_JK4DVjbL2fr2Qg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTI2MDYwfQ.vMvFtuR3SpT6x2mi5oXPB59a2NB_1zCPSy-FLK8j5-8}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Viacheslav/Desktop/test2.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/media",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"media"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loaded media",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/static/75d366d5-347d-4c0f-977f-fc411df34813.jpg",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"static",
+										"75d366d5-347d-4c0f-977f-fc411df34813.jpg"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MzA2MTMwfQ.n0MMjn5wh3B01wRJy0_xed1DOzyKL9xEVEJT6O9VmOI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/me",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POSTS",
+					"item": [
+						{
+							"name": "/posts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [POST]",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"authorId\": 1,\r\n    \"content\": \"Мой первый пост!\",\r\n    \"created\": 1585637381,\r\n    \"postType\": \"POST\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [POST] Edit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MzA3OTIxfQ.YhOApTPoTISrethhQ0GdlVyLeHhyLDqok9uD1yTOnZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"id\": 1,\r\n    \"authorId\": 1,\r\n    \"content\": \"Мой первый пост! (Изменен!)\",\r\n    \"created\": 1585637381,\r\n    \"postType\": \"POST\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [EVENT]",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MjkwNzUwfQ.MgpRtDjc7rdPR1PHbR5L-qVSEeXyZ77hRtbAa6wLaLs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"authorId\": 1,\r\n    \"content\": \"Мы на красной площади!\",\r\n    \"created\": 1585637381,\r\n    \"event\": {\r\n        \"address\": \"Красная площадь\",\r\n        \"lat\": 55.753575,\r\n        \"lng\": 37.62104\r\n        },\r\n    \"postType\": \"EVENT\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts [VIDEO]",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MjkwNzUwfQ.MgpRtDjc7rdPR1PHbR5L-qVSEeXyZ77hRtbAa6wLaLs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"authorId\": 1,\r\n    \"content\": \"Resident Evil Village - 3rd Trailer\",\r\n    \"created\": 1585637381,\r\n    \"video\": {\r\n        \"url\": \"https://www.youtube.com/watch?v=btFclZUXpzA&t=7s\",\r\n        \"imgUrl\": \"https://i.ytimg.com/vi/btFclZUXpzA/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB0N6wi-IiDsGNzfZBou7XQKxZq8A\"\r\n        },\r\n    \"postType\": \"VIDEO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MzgxMTE2fQ.C0-t57JlT-m8VvN4iINM0M783iFtkBlQvdRulc2JFv8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/1",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNjE1MzgwMDQ3fQ.Mv4-qngZCpZ_APGFbXaCNYYVkcgfUOabKGRAvtkx6N4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/1",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/?id&like",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzc5ODY3fQ.wFLsr8C6jsC0lEiGNCjZBXHZmVtVYdJrurgmR6Ky2sI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/1/like",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/?id&like",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1NzMyMDcwfQ.U-b7V6IdykB5BrYumwhzwSjoTjvBhhpM38ipO8rkxOs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/1/like",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/posts/?id/dislike",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNjE1MzgwMDQ3fQ.Mv4-qngZCpZ_APGFbXaCNYYVkcgfUOabKGRAvtkx6N4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/1/dislike",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"dislike"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/repost/repost",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"id\": 1,\r\n    \"parentPostId\": 1,\r\n    \"authorId\": 1,\r\n    \"content\": \"отличный пост!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/repost",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"repost"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/share/:id/share",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1Mzg0NTY5fQ.2mttih2kC-Q2ugRawJSb4peT1H29pcox5m-PcWKbmIk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://ktor-coursar.herokuapp.com/api/v1/posts/1/share",
+									"protocol": "https",
+									"host": [
+										"ktor-coursar",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1",
+										"share"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,66 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.4.31"
+    id "application"
+}
+
+group "org.example"
+version "1.0-SNAPSHOT"
+
+// Класс с которого стартуем
+application {
+    mainClassName = "org.example.ApplicationKt"
+}
+
+repositories {
+    jcenter()       // Данный репозиторий скоро будет закрыт. Многие либы уже переехали на mavenCentral
+    mavenCentral()
+}
+
+// Поставил либы посвежее
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlinx:atomicfu:0.15.1"
+
+    // KTOR https://ktor.io/docs/welcome.html
+    implementation "io.ktor:ktor-server-cio:1.5.2"
+    // Coroutine-based I/O Движок заточеный для работы с корутинами. Пока только http/1.x
+    implementation "io.ktor:ktor-gson:1.5.2"       // Json конвертер
+
+    // Логирование
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+
+    // Kodein https://github.com/Kodein-Framework/Kodein-DI
+    implementation "org.kodein.di:kodein-di-generic-jvm:6.3.3"
+    implementation "org.kodein.di:kodein-di-framework-ktor-server-jvm:6.3.3"
+
+    // Auth
+    implementation "io.ktor:ktor-auth:1.2.4"
+    implementation "io.ktor:ktor-auth-jwt:1.2.4"
+
+    // Компоненты Spring
+    implementation "org.springframework.security:spring-security-crypto:5.3.2.RELEASE" // Encryptor
+    implementation "org.springframework:spring-webmvc:4.1.6.RELEASE"
+
+    implementation "com.jayway.jsonpath:json-path:0.8.0" // DSL для чтения файлов JSON. Используется в тесте.
+
+    // Тесты
+    testImplementation "io.ktor:ktor-server-tests:1.5.2"
+}
+
+// Настройки компилятора
+
+sourceCompatibility = 1.8   // Указывается версия языка которая будет использоваться для компилирования
+targetCompatibility = 1.8   // На какой цлевой версии java будет исполнятся код
+
+// Еще вариант записи
+// sourceCompatibility = JavaVersion.VERSION_1_8
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+// Gradle задача. Все Gradle-задачи можешь найти во вкладке Gradle справа
+task stage(dependsOn: installDist)
