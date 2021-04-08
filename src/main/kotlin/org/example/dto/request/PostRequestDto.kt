@@ -22,12 +22,13 @@ data class PostRequestDto(
 //    val video: VideoModel? = null,       // Видеоконтент
 //    val postType: PostType = PostType.POST,
 //    val countViews: Int = 0,
-) {
-    companion object {
-        fun toModel(dto: PostRequestDto) = PostModel(
-            id = dto.id,
-            authorId = dto.authorId,
-            content = dto.content,
+)
+//{
+//    companion object {
+//        fun toModel(dto: PostRequestDto) = PostModel(
+//            id = dto.id,
+//            authorId = dto.authorId,
+//            content = dto.content,
 //            imageUrl = dto.imageUrl,
 //            created = dto.created,
 //            likedCount = dto.likedCount,
@@ -39,6 +40,6 @@ data class PostRequestDto(
 //            video = dto.video,
 //            postType = dto.postType,
 //            countViews = dto.countViews
-        )
-    }
-}
+//        )
+//    }
+//}
