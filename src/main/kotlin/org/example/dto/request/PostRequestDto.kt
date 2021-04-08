@@ -7,7 +7,7 @@ import org.example.model.VideoModel
 
 data class PostRequestDto(
     val id: Long,
-    val authorId: Long? = null,
+//    val authorId: Long? = null,
     val content: String? = null,
 //    val created: Long,
 //    val imageUrl: String,
