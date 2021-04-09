@@ -33,7 +33,7 @@ class PostService(
 
     // Сохранение / изменение
 //    suspend fun save(request: PostRequestDto, user: UserModel): PostResponseDto {
-    suspend fun save(request: PostRequestDto, id: Long): PostResponseDto {
+    suspend fun save(request: PostRequestDto): PostResponseDto {
         // Чекаем создан ли Post пользователем.
 //        if (request.authorId != user.id) {
 //            throw ForbiddenException("Access deny!")
@@ -51,13 +51,13 @@ class PostService(
 //        return PostResponseDto.fromModel(model)
 //    }
 
-        if (request.id != 0L) {
-            // concurrency issues ignored
-            val existing = postRepo.getById(request.id)!!
-            if (existing.authorId != id) {
-                throw ForbiddenException("Access deny!")
-            }
-        }
+//        if (request.id != 0L) {
+//            // concurrency issues ignored
+//            val existing = postRepo.getById(request.id)!!
+//            if (existing.authorId != id) {
+//                throw ForbiddenException("Access deny!")
+//            }
+//        }
 //        val model = PostRequestDto(
 //            id = request.id,
 //            authorId = id,
