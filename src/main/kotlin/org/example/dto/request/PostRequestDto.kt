@@ -23,7 +23,7 @@ data class PostRequestDto(
     val postType: PostType = PostType.POST,
     val countViews: Int = 0,
 )
-{
+ {
     companion object {
         fun toModel(dto: PostRequestDto) = PostModel(
             id = dto.id,

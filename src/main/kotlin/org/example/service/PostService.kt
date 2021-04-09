@@ -55,12 +55,20 @@ class PostService(
             // concurrency issues ignored
             val existing = postRepo.getById(request.id)!!
             if (existing.authorId != id) {
-                throw SQLInvalidAuthorizationSpecException()
+                throw ForbiddenException("Access deny!")
             }
         }
-
+//        val model = PostRequestDto(
+//            id = request.id,
+//            authorId = id,
+//            content = request.content
+          //  link = input.link,
+            //attachment = input.attachmentId?.let {
+            //    AttachmentModel(input.attachmentId, mediaType = MediaType.IMAGE)
+//            )
         // Сохраняем в репозиторий
         val model = PostRequestDto.toModel(request)
+
         postRepo.save(model)
 //
 //        // Тащим из БД модель
@@ -73,6 +81,7 @@ class PostService(
 
 
     }
+
 
 
 //        val model = PostModel(
