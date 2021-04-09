@@ -4,7 +4,7 @@ data class PostModel(
 
     val id: Long,
     val authorId: Long,
-    val content: String,
+    val content: String?,
     val created: Long,
     val imageUrl: String?,               // Прикрепленное изображение
 

@@ -79,7 +79,7 @@ class RoutingV1(
                             val me = call.authentication.principal<UserModel>() ?: throw Throwable()
                             val post = call.receive<PostRequestDto>()
 
-                            call.respond(postService.save(post, me))
+                            call.respond(postService.save(post, me.id))
                         }
 
                         get("/{id}") {

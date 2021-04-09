@@ -8,7 +8,7 @@ import org.example.model.VideoModel
 data class PostResponseDto(
     val id: Long,
     val authorId: Long,
-    val content: String,
+    val content: String? = null,
     val created: Long,
     val imageUrl: String?,
     val likedCount: Int = 0,

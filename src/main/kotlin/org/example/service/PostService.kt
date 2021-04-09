@@ -31,24 +31,71 @@ class PostService(
     }
 
     // Сохранение / изменение
-    suspend fun save(request: PostRequestDto, user: UserModel): PostResponseDto {
+//    suspend fun save(request: PostRequestDto, user: UserModel): PostResponseDto {
+    suspend fun save(request: PostRequestDto, id: Long): PostResponseDto {
+        // Чекаем создан ли Post пользователем.
+//        if (request.authorId != user.id) {
+//            throw ForbiddenException("Access deny!")
+//        }
+//
+//        // Сохраняем в репозиторий
+//        val model = PostRequestDto.toModel(request)
+//        postRepo.save(model)
+//
+//        // Тащим из БД модель
+//        val lastPost = postRepo.getAll().size.toLong()
+//
+//        userRepo.saveUserPost(model.authorId, lastPost)
+//
+//        return PostResponseDto.fromModel(model)
+//    }
+
+
 
         // Чекаем создан ли Post пользователем.
-        if (request.authorId != user.id) {
-            throw ForbiddenException("Access deny!")
-        }
+//        if (request.authorId != request.id) {
+//            throw ForbiddenException("Access deny!")
+//        }
 
-        // Сохраняем в репозиторий
+//        // Сохраняем в репозиторий
         val model = PostRequestDto.toModel(request)
         postRepo.save(model)
 
-        // Тащим из БД модель
+//        // Тащим из БД модель
         val lastPost = postRepo.getAll().size.toLong()
 
         userRepo.saveUserPost(model.authorId, lastPost)
 
         return PostResponseDto.fromModel(model)
     }
+
+
+
+
+//        val model = PostModel(
+//                id = request.id,
+//                authorId = myId,
+//                content = request.content
+//            )
+//            link = input.link,
+//            attachment = input.attachmentId?.let {
+//                AttachmentModel(input.attachmentId, mediaType = MediaType.IMAGE)
+//            })
+
+//        if (input.id != 0L) {
+//            // concurrency issues ignored
+//            val existing = repo.getById(input.id)!!
+//            if (existing.ownerId != myId) {
+//                throw InvalidOwnerException()
+//            }
+//        }
+//
+//        val post = repo.save(model)
+//        val owners = listOf(userService.getById(myId))
+//        val postDto = mapToPostDto(post, null, owners, myId)
+//
+//        return postDto
+//    }
 
     suspend fun deleteById(id: Long, user: UserModel): PostResponseDto {
 
