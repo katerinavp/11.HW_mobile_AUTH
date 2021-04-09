@@ -10,6 +10,7 @@ import org.example.model.PostModel
 import org.example.model.UserModel
 import org.example.repository.PostRepository
 import org.example.repository.UserRepository
+import java.sql.SQLInvalidAuthorizationSpecException
 
 class PostService(
     private val postRepo: PostRepository,
@@ -50,26 +51,28 @@ class PostService(
 //        return PostResponseDto.fromModel(model)
 //    }
 
+        if (request.id != 0L) {
+            // concurrency issues ignored
+            val existing = postRepo.getById(request.id)!!
+            if (existing.authorId != id) {
+                throw SQLInvalidAuthorizationSpecException()
+            }
+        }
 
-
-        // Чекаем создан ли Post пользователем.
-//        if (request.authorId != request.id) {
-//            throw ForbiddenException("Access deny!")
-//        }
-
-//        // Сохраняем в репозиторий
+        // Сохраняем в репозиторий
         val model = PostRequestDto.toModel(request)
         postRepo.save(model)
-
+//
 //        // Тащим из БД модель
         val lastPost = postRepo.getAll().size.toLong()
 
         userRepo.saveUserPost(model.authorId, lastPost)
 
         return PostResponseDto.fromModel(model)
+
+
+
     }
-
-
 
 
 //        val model = PostModel(

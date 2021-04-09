@@ -28,3 +28,5 @@ data class PostModel(
     val postType: PostType = PostType.POST,
     val countViews: Int = 0,
 )
+
+

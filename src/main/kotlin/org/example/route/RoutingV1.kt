@@ -9,6 +9,7 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import org.example.dto.request.*
+import org.example.dto.responce.PostResponseDto
 import org.example.dto.responce.UserResponseDto
 import org.example.model.UserModel
 import org.example.service.FileService
